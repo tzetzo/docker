@@ -1,0 +1,11 @@
+version: '3'
+
+# List the containers we want to start
+services:
+    redis-server:
+        image: 'redis'
+    node-app:
+        restart: always # if container stops for any reason always restart it; "no" (default), always (for web server), on-failure (for worker processes), unless-stopped 
+        build: .
+        ports:
+            - "4001:8081"
